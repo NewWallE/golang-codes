@@ -5,14 +5,13 @@ import (
 	"github.com/NewWallE/golang-codes/leetcode/datastructure/arrays"
 )
 
-func main()  {
+func main() {
 	fmt.Println("Inside main of datastructure")
 	runArraysPrograms()
 
 }
 
-func runArraysPrograms()  {
+func runArraysPrograms() {
 	fmt.Println("Running Arrays programs")
 	arrays.RunBinarySearch()
 }
-

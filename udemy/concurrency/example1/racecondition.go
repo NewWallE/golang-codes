@@ -6,12 +6,12 @@ import (
 	"sync"
 	"time"
 )
-const numberOfGoRoutines = 200
 
+const numberOfGoRoutines = 200
 
 //Create 200 go routines and demonstrate a race condition.
 // Also show case the same using go run --race command in the terminal.
-func main()  {
+func main() {
 	//raceCondition()
 	raceConditionFixedWithMutex()
 
@@ -19,8 +19,8 @@ func main()  {
 
 func raceConditionFixedWithMutex() {
 	//Print some system properties at the start.
-	fmt.Println("Number of CPUs: ",runtime.NumCPU())
-	fmt.Println("[Start]Go Routines Count: ",runtime.NumGoroutine())
+	fmt.Println("Number of CPUs: ", runtime.NumCPU())
+	fmt.Println("[Start]Go Routines Count: ", runtime.NumGoroutine())
 	counter := 0
 
 	var mu sync.Mutex
@@ -37,18 +37,18 @@ func raceConditionFixedWithMutex() {
 			mu.Unlock()
 			ws.Done()
 		}()
-		fmt.Println("Go Routines Count: ",runtime.NumGoroutine())
-		fmt.Println("running counter value: ",counter)
+		fmt.Println("Go Routines Count: ", runtime.NumGoroutine())
+		fmt.Println("running counter value: ", counter)
 	}
 	ws.Wait()
-	fmt.Println("[End]Go Routines Count: ",runtime.NumGoroutine())
-	fmt.Println("Counter Value: ",counter)
+	fmt.Println("[End]Go Routines Count: ", runtime.NumGoroutine())
+	fmt.Println("Counter Value: ", counter)
 
 }
 func raceCondition() {
 	//Print some system properties at the start.
-	fmt.Println("Number of CPUs: ",runtime.NumCPU())
-	fmt.Println("[Start]Go Routines Count: ",runtime.NumGoroutine())
+	fmt.Println("Number of CPUs: ", runtime.NumCPU())
+	fmt.Println("[Start]Go Routines Count: ", runtime.NumGoroutine())
 	counter := 0
 
 	for i := 0; i < numberOfGoRoutines; i++ {
@@ -67,11 +67,11 @@ func raceCondition() {
 			time.Sleep(time.Millisecond)
 			counter = v
 		}()
-		fmt.Println("Go Routines Count: ",runtime.NumGoroutine())
-		fmt.Println("running counter value: ",counter)
+		fmt.Println("Go Routines Count: ", runtime.NumGoroutine())
+		fmt.Println("running counter value: ", counter)
 	}
 
-	fmt.Println("[End]Go Routines Count: ",runtime.NumGoroutine())
-	fmt.Println("Counter Value: ",counter)
+	fmt.Println("[End]Go Routines Count: ", runtime.NumGoroutine())
+	fmt.Println("Counter Value: ", counter)
 
 }

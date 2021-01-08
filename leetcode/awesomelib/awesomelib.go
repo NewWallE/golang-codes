@@ -12,7 +12,7 @@ func main() {
 	times()
 }
 
-func times()  {
+func times() {
 	fmt.Println("All the beginnings...")
 	fmt.Println("All the beginnings...")
 	fmt.Println(now.BeginningOfMinute())
@@ -23,7 +23,7 @@ func times()  {
 	fmt.Println(now.BeginningOfQuarter())
 	fmt.Println(now.BeginningOfYear().Day())
 }
-func colors()  {
+func colors() {
 	color.Cyan("Prints text in cyan.")
 
 	// a newline will be appended automatically
